@@ -1,0 +1,20 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+dist/
+*.egg-info/
+
+# Refinery runtime artifacts (too large for git)
+.refinery/extraction_ledger.jsonl
+data/corpus/
+
+# Vector store (can be rebuilt)
+.chroma/
+
+# OS
+.DS_Store
