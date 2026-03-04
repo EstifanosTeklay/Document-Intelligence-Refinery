@@ -17,9 +17,23 @@ class SourceCitation(BaseModel):
     document_name: str
     page_number: int
     bounding_box: Optional[BoundingBox] = None
+
+    # LDU linkage — ties citation back to exact chunk
+    chunk_id: str = Field(..., description="ID of the source LDU chunk")
     content_hash: str = Field(..., description="SHA-256 of the source chunk — verifiable")
+
     excerpt: str = Field(..., description="Short excerpt from the source (max 200 chars)")
     strategy_used: str = Field(default="", description="A | B | C — extraction strategy")
+
+    # PageIndex linkage — which section this came from
+    section_title: Optional[str] = Field(
+        default=None,
+        description="Title of the PageIndex section this chunk belongs to"
+    )
+    section_node_id: Optional[str] = Field(
+        default=None,
+        description="PageIndex node ID for navigation back to section"
+    )
 
 
 # ------------------------------------------------------------
@@ -45,6 +59,16 @@ class ProvenanceChain(BaseModel):
     unverifiable_claims: list[str] = Field(
         default_factory=list,
         description="Any claims in the answer that could not be sourced"
+    )
+
+    # Audit mode fields
+    verified_chunk_ids: list[str] = Field(
+        default_factory=list,
+        description="chunk_ids that were successfully verified against source"
+    )
+    pageindex_nodes_traversed: list[str] = Field(
+        default_factory=list,
+        description="PageIndex node IDs visited during retrieval"
     )
 
     class Config:
