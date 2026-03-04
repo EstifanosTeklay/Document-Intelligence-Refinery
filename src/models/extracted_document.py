@@ -1,5 +1,9 @@
-from typing import Optional
+from __future__ import annotations
+from typing import Optional, TYPE_CHECKING
 from pydantic import BaseModel, Field
+
+if TYPE_CHECKING:
+    from .routing import RoutingDecision
 
 
 # ------------------------------------------------------------
@@ -95,6 +99,15 @@ class ExtractedDocument(BaseModel):
     pages_text: dict[int, str] = Field(
         default_factory=dict,
         description="page_number → full page text"
+    )
+
+    # Routing metadata — attached by ExtractionRouter after orchestration
+    routing_decision: Optional[dict] = Field(
+        default=None,
+        description=(
+            "RoutingDecision dict attached by ExtractionRouter. "
+            "Records strategies attempted, confidence scores, and escalation reason."
+        )
     )
 
     class Config:

@@ -4,3 +4,4 @@ from .extracted_document import ExtractedDocument, ExtractedTable, ExtractedFigu
 from .ldu import LDU, ChunkType, ChunkRelationship
 from .pageindex import PageIndex, PageIndexNode, SectionEntity
 from .provenance import ProvenanceChain, SourceCitation
+from .routing import RoutingDecision, StrategyAttempt
