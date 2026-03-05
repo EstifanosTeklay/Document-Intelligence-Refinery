@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "document-intelligence-refinery"
+name = "Document-Intelligence-Refinery"
 version = "0.1.0"
 description = "A multi-stage agentic pipeline for enterprise document extraction"
 requires-python = ">=3.10"
@@ -51,3 +51,6 @@ line-length = 88
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/Document-Intelligence-Refinery"]

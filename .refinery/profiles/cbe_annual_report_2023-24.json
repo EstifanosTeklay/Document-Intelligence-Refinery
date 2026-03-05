@@ -1,0 +1,23 @@
+{
+  "doc_id": "cbe_annual_report_2023-24",
+  "filename": "CBE ANNUAL REPORT 2023-24.pdf",
+  "total_pages": 161,
+  "origin_type": "native_digital",
+  "layout_complexity": "table_heavy",
+  "domain_hint": "financial",
+  "estimated_extraction_cost": "needs_layout_model",
+  "initial_strategy": "Strategy B",
+  "avg_chars_per_page": 1990.59,
+  "avg_image_area_ratio": 0.0896,
+  "digital_page_count": 150,
+  "scanned_page_count": 11,
+  "table_page_count": 96,
+  "figure_page_count": 24,
+  "domain_scores": {
+    "financial": 9,
+    "legal": 7,
+    "technical": 6,
+    "medical": 0
+  },
+  "triage_time_seconds": 14.514
+}
