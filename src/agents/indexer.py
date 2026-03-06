@@ -225,51 +225,49 @@ class PageIndexBuilder:
     def _generate_summary(self, title: str, text: str) -> str:
         """
         Generate a 2-3 sentence summary of a section.
-        Uses OpenRouter LLM if API key is set, else extractive fallback.
+        Uses Google Gemini if API key is set, else extractive fallback.
         """
-        api_key = os.getenv("OPENROUTER_API_KEY", "")
-        if api_key and api_key != "your_openrouter_api_key_here":
+        api_key = os.getenv("GOOGLE_GEMINI_API_KEY", "")
+        if api_key and api_key != "your_key_here":
             return self._llm_summary(title, text, api_key)
         return self._extractive_summary(text)
 
     def _llm_summary(self, title: str, text: str, api_key: str) -> str:
-        """Call OpenRouter to generate a section summary."""
+        """Call Google Gemini to generate a section summary."""
         try:
             import urllib.request
             import json
 
-            # Truncate text to avoid excessive tokens
             truncated = text[:2000] if len(text) > 2000 else text
+            model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
 
             payload = json.dumps({
-                "model": self.summary_model,
-                "max_tokens": self.max_summary_tokens,
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": (
+                "contents": [{
+                    "parts": [{
+                        "text": (
                             f"Summarise this document section in 2-3 sentences. "
                             f"Section title: '{title}'\n\n{truncated}"
                         )
-                    }
-                ]
+                    }]
+                }]
             }).encode()
 
+            url = (
+                f"https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{model}:generateContent?key={api_key}"
+            )
+
             req = urllib.request.Request(
-                "https://openrouter.ai/api/v1/chat/completions",
+                url,
                 data=payload,
-                headers={
-                    "Authorization": f"Bearer {api_key}",
-                    "Content-Type": "application/json",
-                },
+                headers={"Content-Type": "application/json"},
                 method="POST"
             )
             with urllib.request.urlopen(req, timeout=15) as resp:
                 data = json.loads(resp.read())
-                return data["choices"][0]["message"]["content"].strip()
+                return data["candidates"][0]["content"]["parts"][0]["text"].strip()
 
         except Exception as e:
-            # Fall back to extractive if LLM call fails
             return self._extractive_summary(text)
 
     def _extractive_summary(self, text: str) -> str:
