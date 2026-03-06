@@ -168,6 +168,25 @@ class ChunkingEngine:
 
         # Save chunks to disk
         self._save_chunks(extracted.doc_id, chunks)
+
+        # ── Storage Path 1: Vector Store ────────────────────
+        try:
+            from src.storage.vector_store import VectorStore
+            vs = VectorStore()
+            vs.ingest(chunks, extracted.doc_id)
+        except Exception as e:
+            import warnings
+            warnings.warn(f"VectorStore ingestion failed: {e}")
+
+        # ── Storage Path 2: FactTable ────────────────────────
+        try:
+            from src.storage.fact_table import FactTable
+            ft = FactTable()
+            ft.extract_and_store(chunks, extracted.doc_id)
+        except Exception as e:
+            import warnings
+            warnings.warn(f"FactTable ingestion failed: {e}")
+
         return chunks
 
     # ----------------------------------------------------------
