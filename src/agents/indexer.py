@@ -18,10 +18,14 @@ import json
 import re
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 from src.models.ldu import LDU, ChunkType
 from src.models.pageindex import PageIndex, PageIndexNode, SectionEntity
 from src.utils.config import config
+
+# Load .env file to ensure environment variables are available
+load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent.parent / ".env")
 
 
 class PageIndexBuilder:
@@ -228,7 +232,7 @@ class PageIndexBuilder:
         Uses Google Gemini if API key is set, else extractive fallback.
         """
         api_key = os.getenv("GOOGLE_GEMINI_API_KEY", "")
-        if api_key and api_key != "your_key_here":
+        if api_key:
             return self._llm_summary(title, text, api_key)
         return self._extractive_summary(text)
 

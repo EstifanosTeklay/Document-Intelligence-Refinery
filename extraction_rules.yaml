@@ -138,7 +138,7 @@ chunking:
 # ------------------------------------------------------------
 pageindex:
   # Model used for section summarization (cheap + fast)
-  summary_model: google/gemini-flash-1.5
+  summary_model: google/gemini-2.5-flash
   max_summary_tokens: 100             # per section node
   top_k_sections: 3                   # sections returned per query
 

@@ -1,0 +1,375 @@
+{
+  "doc_id": "mcf",
+  "filename": "MCF.pdf",
+  "total_pages": 1,
+  "nodes": [
+    {
+      "node_id": "mcf_node_0000",
+      "doc_id": "mcf",
+      "title": "Internship Program",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Internship Program",
+      "key_entities": [
+        {
+          "text": "Internship Program",
+          "entity_type": "ORG"
+        }
+      ],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0000"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0001",
+      "doc_id": "mcf",
+      "title": "Frequently Asked Questions (FAQ)",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Frequently Asked Questions (FAQ) Addendum September 2025",
+      "key_entities": [
+        {
+          "text": "2025",
+          "entity_type": "DATE"
+        },
+        {
+          "text": "Frequently Asked Questions",
+          "entity_type": "ORG"
+        },
+        {
+          "text": "Addendum September",
+          "entity_type": "ORG"
+        }
+      ],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0001",
+        "mcf_chunk_0002"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0002",
+      "doc_id": "mcf",
+      "title": "A. Retirement Savings Plan (ISP)",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Retirement Savings Plan (ISP)",
+      "key_entities": [
+        {
+          "text": "Retirement Savings Plan",
+          "entity_type": "ORG"
+        }
+      ],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0003"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0003",
+      "doc_id": "mcf",
+      "title": "i. Contributions & Withdrawals",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Contributions & Withdrawals",
+      "key_entities": [],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0004"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0004",
+      "doc_id": "mcf",
+      "title": "Q: Will the contributions we have made to the ISP be paid back to us?",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Q: Will the contributions we have made to the ISP be paid back to us?",
+      "key_entities": [],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0005",
+        "mcf_chunk_0006"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0005",
+      "doc_id": "mcf",
+      "title": "Q: When will we receive the payouts after our internship/contract ends?",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Q: When will we receive the payouts after our internship/contract ends? A: The withdrawal process starts after the last payroll run and can take up to 60 days to complete.",
+      "key_entities": [],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0007",
+        "mcf_chunk_0008"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0006",
+      "doc_id": "mcf",
+      "title": "Q: Can we leave the contributions as savings for future use?",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Q: Can we leave the contributions as savings for future use?",
+      "key_entities": [
+        {
+          "text": "Specialised Services",
+          "entity_type": "ORG"
+        }
+      ],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0009",
+        "mcf_chunk_0010"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0007",
+      "doc_id": "mcf",
+      "title": "Q: Under what circumstances can an employee withdraw their retirement contribution?",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Q: Under what circumstances can an employee withdraw their retirement contribution? A: According to policy, withdrawal is allowed: \uf0b7 Upon retirement or early retirement from the Foundation.",
+      "key_entities": [
+        {
+          "text": "Fixed Term Employees",
+          "entity_type": "ORG"
+        }
+      ],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0011",
+        "mcf_chunk_0012",
+        "mcf_chunk_0013",
+        "mcf_chunk_0014",
+        "mcf_chunk_0015",
+        "mcf_chunk_0016",
+        "mcf_chunk_0017"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0008",
+      "doc_id": "mcf",
+      "title": "B. ISP Withdrawal Process",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "ISP Withdrawal Process Staff notify the Specialised Services team of intent to exit the ISP.",
+      "key_entities": [
+        {
+          "text": "Withdrawal Process Staff",
+          "entity_type": "ORG"
+        },
+        {
+          "text": "Specialised Services",
+          "entity_type": "ORG"
+        },
+        {
+          "text": "Leaver Notice Form",
+          "entity_type": "ORG"
+        },
+        {
+          "text": "Alex Forbes",
+          "entity_type": "ORG"
+        },
+        {
+          "text": "Alex  Forbes",
+          "entity_type": "ORG"
+        }
+      ],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0018",
+        "mcf_chunk_0019",
+        "mcf_chunk_0020",
+        "mcf_chunk_0021",
+        "mcf_chunk_0022",
+        "mcf_chunk_0023"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0009",
+      "doc_id": "mcf",
+      "title": "C. HealthCare Benefits",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "C. HealthCare Benefits",
+      "key_entities": [],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0024"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0010",
+      "doc_id": "mcf",
+      "title": "Q: When does medical cover end after leaving the Foundation?",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Q: When does medical cover end after leaving the Foundation? A: Medical cover ends on the last day of employment for the principal member.",
+      "key_entities": [],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0025",
+        "mcf_chunk_0026"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0011",
+      "doc_id": "mcf",
+      "title": "Q: Can medical cover be extended beyond the last day of employment?",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Q: Can medical cover be extended beyond the last day of employment? A: Yes, but only in exceptional circumstances and with approval by the Director, Total Rewards and Mobility.",
+      "key_entities": [
+        {
+          "text": "Total Rewards",
+          "entity_type": "ORG"
+        }
+      ],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0027",
+        "mcf_chunk_0028"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0012",
+      "doc_id": "mcf",
+      "title": "Q: Who should we contact with queries about healthcare benefits or offboarding?",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Q: Who should we contact with queries about healthcare benefits or offboarding? A: Please direct all healthcare and offboarding queries to Faith, who will provide guidance and support.",
+      "key_entities": [],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0029",
+        "mcf_chunk_0030"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0013",
+      "doc_id": "mcf",
+      "title": "D.  Benefits my Way (BMW)",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Benefits my Way (BMW)",
+      "key_entities": [],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0031"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    },
+    {
+      "node_id": "mcf_node_0014",
+      "doc_id": "mcf",
+      "title": "Q: Can I pay for a course now and claim from BMW later?",
+      "level": 1,
+      "page_start": 1,
+      "page_end": 1,
+      "summary": "Q: Can I pay for a course now and claim from BMW later?",
+      "key_entities": [],
+      "data_types_present": [
+        "headings"
+      ],
+      "chunk_ids": [
+        "mcf_chunk_0032",
+        "mcf_chunk_0033"
+      ],
+      "parent_node_id": null,
+      "child_node_ids": []
+    }
+  ],
+  "root_node_ids": [
+    "mcf_node_0000",
+    "mcf_node_0001",
+    "mcf_node_0002",
+    "mcf_node_0003",
+    "mcf_node_0004",
+    "mcf_node_0005",
+    "mcf_node_0006",
+    "mcf_node_0007",
+    "mcf_node_0008",
+    "mcf_node_0009",
+    "mcf_node_0010",
+    "mcf_node_0011",
+    "mcf_node_0012",
+    "mcf_node_0013",
+    "mcf_node_0014"
+  ],
+  "document_summary": "Document with 15 sections including: Internship Program, Frequently Asked Questions (FAQ), A. Retirement Savings Plan (ISP), i. Contributions & Withdrawals, Q: Will the contributions we have made to the ISP be paid back to us?.",
+  "total_sections": 15,
+  "total_chunks_indexed": 34
+}
