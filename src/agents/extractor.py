@@ -246,3 +246,38 @@ class ExtractionRouter:
 
         with open(self.cfg.ledger_path, "a") as f:
             f.write(json.dumps(entry) + "\n")
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
+    from src.agents.triage import TriageAgent
+
+    if len(sys.argv) < 2:
+        print("Usage: python -m src.agents.extractor <path_to_pdf>")
+        sys.exit(1)
+
+    pdf_path = Path(sys.argv[1])
+
+    # Step 1 - triage first
+    print("Running Triage Agent...")
+    triage = TriageAgent()
+    profile = triage.run(pdf_path)
+    print(f"  Strategy selected : {profile.estimated_extraction_cost}")
+
+    # Step 2 - extraction router
+    print("\nRunning Extraction Router...")
+    router = ExtractionRouter()
+    result = router.run(pdf_path, profile)
+
+    routing = result.routing_decision
+    print("\n" + "="*50)
+    print("  EXTRACTION COMPLETE")
+    print("="*50)
+    print(f"  strategy_used     : {result.strategy_used}")
+    print(f"  confidence        : {result.extraction_confidence}")
+    print(f"  escalation        : {routing['escalation_occurred']}")
+    print(f"  escalation_path   : {routing.get('escalation_path', 'none')}")
+    print(f"  text_blocks       : {len(result.text_blocks)}")
+    print(f"  tables            : {len(result.tables)}")
+    print(f"  processing_time   : {result.processing_time_seconds}s")
+    print(f"  ledger written to : .refinery/extraction_ledger.jsonl")
+    print("="*50)

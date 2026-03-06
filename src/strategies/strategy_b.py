@@ -54,9 +54,19 @@ class LayoutExtractor(BaseExtractor):
         profile: DocumentProfile,
         start: float,
     ) -> ExtractedDocument:
-        from docling.document_converter import DocumentConverter
+        from docling.document_converter import DocumentConverter, PdfFormatOption
+        from docling.datamodel.base_models import InputFormat
+        from docling.datamodel.pipeline_options import PdfPipelineOptions
 
-        converter = DocumentConverter()
+        pipeline_options = PdfPipelineOptions()
+        pipeline_options.do_ocr = False           # disables RapidOCR — fixes memory crash
+        pipeline_options.do_table_structure = True
+
+        converter = DocumentConverter(
+            format_options={
+                InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
+            }
+        )
         result = converter.convert(str(file_path))
         doc = result.document
 

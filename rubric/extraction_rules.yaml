@@ -1,0 +1,157 @@
+# ============================================================
+# Document Intelligence Refinery — Extraction Rules
+# ============================================================
+# This file is the single source of truth for all thresholds,
+# strategy routing decisions, and chunking constraints.
+# Modify this file to onboard new document types — no code changes needed.
+
+# ------------------------------------------------------------
+# STAGE 1: Triage — Origin Type Detection
+# ------------------------------------------------------------
+origin_detection:
+  # Minimum characters per page to be considered "digital" (not scanned)
+  min_chars_per_page: 100
+
+  # If images occupy more than this fraction of page area → likely scanned
+  max_image_area_ratio: 0.50
+
+  # If more than this fraction of pages are "scanned" → whole doc is scanned
+  scanned_page_threshold: 0.30
+
+# ------------------------------------------------------------
+# STAGE 1: Triage — Layout Complexity Detection
+# ------------------------------------------------------------
+layout_detection:
+  # If avg columns detected per page exceeds this → multi_column
+  multi_column_threshold: 1.5
+
+  # If tables occupy more than this fraction of pages → table_heavy
+  table_heavy_page_ratio: 0.30
+
+  # If figures occupy more than this fraction of pages → figure_heavy
+  figure_heavy_page_ratio: 0.25
+
+# ------------------------------------------------------------
+# STAGE 1: Triage — Domain Hint Keywords
+# ------------------------------------------------------------
+domain_hints:
+  financial:
+    - revenue
+    - balance sheet
+    - income statement
+    - fiscal year
+    - earnings
+    - profit
+    - loss
+    - capital expenditure
+    - audit
+    - financial statements
+  legal:
+    - whereas
+    - hereby
+    - pursuant
+    - jurisdiction
+    - liability
+    - indemnification
+    - agreement
+    - clause
+    - contractual
+  technical:
+    - methodology
+    - framework
+    - implementation
+    - architecture
+    - assessment
+    - criteria
+    - performance indicator
+    - benchmark
+  medical:
+    - patient
+    - diagnosis
+    - treatment
+    - clinical
+    - symptoms
+    - dosage
+    - prescription
+
+# ------------------------------------------------------------
+# STAGE 2: Extraction Strategy Routing
+# ------------------------------------------------------------
+strategy_routing:
+  # Strategy A (fast text) triggers when ALL conditions are met
+  strategy_a:
+    required_origin: native_digital
+    allowed_layouts:
+      - single_column
+    min_confidence_to_pass: 0.75      # below this → escalate to B
+
+  # Strategy B (layout-aware) triggers for these conditions
+  strategy_b:
+    allowed_layouts:
+      - multi_column
+      - table_heavy
+      - figure_heavy
+      - mixed
+    allowed_origins:
+      - native_digital
+      - mixed
+    min_confidence_to_pass: 0.60      # below this → escalate to C
+
+  # Strategy C (vision) is always the final fallback
+  strategy_c:
+    triggers:
+      - scanned_image                 # origin type forces vision
+      - handwriting_detected
+      - strategy_a_low_confidence
+      - strategy_b_low_confidence
+    max_cost_usd: 0.50                # hard cap per document
+    max_pages: 50                     # max pages to send to VLM
+
+# ------------------------------------------------------------
+# STAGE 2: Confidence Scoring Weights
+# ------------------------------------------------------------
+confidence_scoring:
+  # Weights must sum to 1.0
+  char_density_weight: 0.40           # chars per page area
+  image_area_weight: 0.25             # penalizes image-heavy pages
+  font_metadata_weight: 0.20          # presence of font info = digital
+  table_completeness_weight: 0.15     # detected tables have headers+rows
+
+# ------------------------------------------------------------
+# STAGE 3: Semantic Chunking Constitution
+# ------------------------------------------------------------
+chunking:
+  max_tokens_per_chunk: 512
+  min_tokens_per_chunk: 50
+  overlap_tokens: 50                  # overlap between adjacent chunks
+
+  # The 5 inviolable chunking rules
+  rules:
+    rule_1_table_integrity: true      # never split table cell from header
+    rule_2_figure_caption: true       # caption always stored as figure metadata
+    rule_3_list_unity: true           # numbered list = single LDU unless > max_tokens
+    rule_4_section_header: true       # section header stored as parent metadata
+    rule_5_cross_reference: true      # cross-refs resolved and stored as relationships
+
+# ------------------------------------------------------------
+# STAGE 4: PageIndex
+# ------------------------------------------------------------
+pageindex:
+  # Model used for section summarization (cheap + fast)
+  summary_model: google/gemini-flash-1.5
+  max_summary_tokens: 100             # per section node
+  top_k_sections: 3                   # sections returned per query
+
+# ------------------------------------------------------------
+# Document Type Overrides
+# ------------------------------------------------------------
+# Per-domain overrides that supersede the global rules above
+domain_overrides:
+  financial:
+    chunking:
+      rule_1_table_integrity: true    # extra strict for financial tables
+    strategy_routing:
+      prefer_layout_aware: true       # always use at least Strategy B
+  legal:
+    chunking:
+      max_tokens_per_chunk: 1024      # legal clauses can be long

@@ -1,0 +1,20 @@
+{
+  "doc_id": "fta_performance_survey_final_report_2022",
+  "filename": "fta_performance_survey_final_report_2022.pdf",
+  "file_path": "D:\\Projects\\Document-Intelligence-Refinery\\data\\fta_performance_survey_final_report_2022.pdf",
+  "total_pages": 155,
+  "origin_type": "native_digital",
+  "layout_complexity": "mixed",
+  "language": "en",
+  "language_confidence": 1.0,
+  "domain_hint": "technical",
+  "estimated_extraction_cost": "needs_layout_model",
+  "avg_chars_per_page": 1675.92,
+  "avg_image_area_ratio": 0.0826,
+  "scanned_page_count": 0,
+  "digital_page_count": 155,
+  "table_page_count": 55,
+  "figure_page_count": 55,
+  "triage_confidence": 1.0,
+  "triage_notes": null
+}

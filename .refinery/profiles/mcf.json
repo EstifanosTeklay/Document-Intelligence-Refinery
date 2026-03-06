@@ -1,0 +1,20 @@
+{
+  "doc_id": "mcf",
+  "filename": "MCF.pdf",
+  "file_path": "D:\\Projects\\Document-Intelligence-Refinery\\data\\MCF.pdf",
+  "total_pages": 1,
+  "origin_type": "native_digital",
+  "layout_complexity": "multi_column",
+  "language": "en",
+  "language_confidence": 1.0,
+  "domain_hint": "general",
+  "estimated_extraction_cost": "needs_layout_model",
+  "avg_chars_per_page": 2860.0,
+  "avg_image_area_ratio": 0.0,
+  "scanned_page_count": 0,
+  "digital_page_count": 1,
+  "table_page_count": 0,
+  "figure_page_count": 0,
+  "triage_confidence": 1.0,
+  "triage_notes": "SINGLE_PAGE: Document has only 1 page. Layout complexity detection may be less reliable — column heuristics require multiple pages for stable estimation."
+}

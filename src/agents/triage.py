@@ -433,3 +433,28 @@ class TriageAgent:
         out_path = self.cfg.profiles_dir / f"{profile.doc_id}.json"
         with open(out_path, "w") as f:
             f.write(profile.model_dump_json(indent=2))
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
+
+    if len(sys.argv) < 2:
+        print("Usage: python -m src.agents.triage <path_to_pdf>")
+        sys.exit(1)
+
+    pdf_path = Path(sys.argv[1])
+    agent = TriageAgent()
+    profile = agent.run(pdf_path)
+
+    print("\n" + "="*50)
+    print("  TRIAGE COMPLETE")
+    print("="*50)
+    print(f"  doc_id            : {profile.doc_id}")
+    print(f"  origin_type       : {profile.origin_type}")
+    print(f"  layout_complexity : {profile.layout_complexity}")
+    print(f"  domain_hint       : {profile.domain_hint}")
+    print(f"  estimated_cost    : {profile.estimated_extraction_cost}")
+    print(f"  total_pages       : {profile.total_pages}")
+    print(f"  avg_chars/page    : {profile.avg_chars_per_page}")
+    print(f"  table_pages       : {profile.table_page_count}")
+    print(f"  triage_notes      : {profile.triage_notes}")
+    print("="*50)
