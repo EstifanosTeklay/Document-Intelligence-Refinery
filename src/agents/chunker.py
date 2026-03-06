@@ -17,6 +17,7 @@ from pathlib import Path
 
 from src.models import ExtractedDocument
 from src.models.ldu import LDU, ChunkType, ChunkRelationship
+from src.agents.chunk_validator import ChunkValidator
 from src.utils.config import config
 
 
@@ -165,6 +166,11 @@ class ChunkingEngine:
                     figure_caption=caption,
                 ))
                 chunk_index += 1
+
+        # Validate all chunks against the 5 rules before saving
+        validator = ChunkValidator()
+        chunks, validation_report = validator.validate(chunks)
+        self._last_validation_report = validation_report
 
         # Save chunks to disk
         self._save_chunks(extracted.doc_id, chunks)
