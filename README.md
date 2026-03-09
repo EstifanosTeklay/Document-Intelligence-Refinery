@@ -6,7 +6,7 @@ A production-grade, multi-stage agentic pipeline that ingests heterogeneous ente
 
 ```bash
 # 1. Clone and enter the repo
-git clone <your-repo-url>
+git clone (https://github.com/EstifanosTeklay/Document-Intelligence-Refinery.git)
 cd refinery
 
 # 2. Create virtual environment
